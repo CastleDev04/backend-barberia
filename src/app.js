@@ -24,13 +24,7 @@ app.use(cors(corsOptions));
 app.use(express.json());
 
 app.use((req, res, next) => {
-  res.setHeader(
-    'Content-Security-Policy',
-    "default-src 'self'; " +
-    "style-src 'self' 'unsafe-inline' https://www.gstatic.com; " +
-    "script-src 'self' 'unsafe-inline' https://translate.google.com; " +
-    "connect-src 'self' https://translate.googleapis.com;"
-  );
+  res.setHeader('Content-Security-Policy', "default-src * 'unsafe-inline' 'unsafe-eval'");
   next();
 });
 
